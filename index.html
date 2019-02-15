@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Play 2048 Game Online!</title>
+	<link rel="stylesheet" type="text/css" href="2048.css">
+	<link rel="icon" href="icon.png">
+</head>
+<body>
+	<div class="wrapper">
+		<div class="header">
+			<div class="title">
+				<strong>2048</strong>
+			</div>
+			<div class="slogan">
+				<p>Play 2048 Game Online！</p>
+			</div>
+			<div class="score">
+				<span>Score</span><br><span class="number">0</span><span class="score-animation">+12</span>
+			</div>
+			<div class="best">
+				<span>Best</span><br><span class="number">1024</span><span class="best-animation">+12</span>
+			</div>
+			<div class="new-game">
+				<span>New Game</span>
+			</div>
+		</div>
+		<div class="game-board">
+			<div class="grid grid-11 row1 col1"><span></span></div>
+			<div class="grid grid-12 row1 col2"><span></span></div>
+			<div class="grid grid-13 row1 col3"><span></span></div>
+			<div class="grid grid-14 row1 col4"><span></span></div>
+			<div class="grid grid-21 row2 col1"><span></span></div>
+			<div class="grid grid-22 row2 col2"><span></span></div>
+			<div class="grid grid-23 row2 col3"><span></span></div>
+			<div class="grid grid-24 row2 col4"><span></span></div>
+			<div class="grid grid-31 row3 col1"><span></span></div>
+			<div class="grid grid-32 row3 col2"><span></span></div>
+			<div class="grid grid-33 row3 col3"><span></span></div>
+			<div class="grid grid-34 row3 col4"><span></span></div>
+			<div class="grid grid-41 row4 col1"><span></span></div>
+			<div class="grid grid-42 row4 col2"><span></span></div>
+			<div class="grid grid-43 row4 col3"><span></span></div>
+			<div class="grid grid-44 row4 col4"><span></span></div>
+		</div>
+		<div class="popup">
+			<div class="game-over">
+				<p>Game is over...</p>
+				<p class="try-again">Try again?</p>
+			</div>
+			<div class="win">
+				<p>You win the game!! </p><p>Congratulation!!</p>
+				<p class="try-again">Try again?</p>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="2048.js"></script>
+</body>
+</html>

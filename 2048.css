@@ -1,0 +1,166 @@
+* {
+	list-style: none;
+	color: #8f7a66;
+}
+body {
+	padding: 0;
+	margin: 0;
+	background-color: #ffffe0;
+	
+}
+
+.wrapper {
+	position: relative;
+	width: 400px;
+	height: 540px;
+	/*border: 1px solid red;*/
+	margin: 0 auto;
+}
+/*头部*/
+.header {
+	width: 400px;
+	height: 140px;
+	/*border: 1px solid green;*/
+	position: relative;
+	/*opacity: 0.4;*/
+}
+.title, .slogan, .score, .best, .new-game {
+	position: absolute;
+}
+.title strong {
+	display: inline-block;
+	width: 260px;
+	height: 100px;
+	font-size: 78px;
+	line-height: 100px;
+	/*text-align: center;*/
+	padding: 0 5px;
+	/*border: 1px solid black;*/
+}
+.slogan {
+	padding: 0 5px;
+	top: 85px;
+	/*border: 1px solid black;*/
+}
+/*分数*/
+
+/* 分数动画 */
+.score-animation, .best-animation{
+	display: none;
+	position: absolute;
+	top: 25px;
+	left: 10px;
+	width: 65px;
+	height: 30px;
+	font-size: 24px;
+	font-weight: bold;
+}
+.score {
+	left: 220px;
+}
+.best {
+	left: 315px;
+}
+.score, .best {
+	position: absolute;
+	width: 85px;
+	height: 60px;
+	line-height: 28px;
+	top: 20px;
+	background-color: #bbada0;
+}
+.score span, .best span, .new-game span {
+	color: #ffffff;
+}
+.score, .best, .new-game, .game-board, .grid {
+	text-align: center;
+	border-radius: 5px;
+} 
+.best .number, .score .number, .new-game {
+	font-size: 22px;
+	font-weight: bold;
+}
+.new-game {
+	width: 180px;
+	height: 40px;
+	line-height: 40px;
+	left: 220px;
+	top: 90px;
+	text-align: center;
+	background-color: #8e7963;
+	cursor: pointer;
+}
+.new-game:hover {
+	width: 182px;
+	height: 42px;
+	line-height: 42px;
+	left: 219px;
+	top: 89px;
+	font-size: 24px;
+}
+/*游戏主面板*/
+.game-board {
+	width: 390px;
+	height: 390px;
+	padding: 5px 5px;
+	background-color: #bbada0;
+	/*opacity: 0.4;*/
+}
+.grid {
+	position: relative;
+	float: left;
+	width: 87.5px;
+	height: 87.5px;
+	line-height: 87.5px;
+	/*font-size: 48px;*/
+	font-weight: bold;
+	margin: 5px;
+	background-color: #b0c4de;
+}
+.game-board .grid span {
+	/*color: */
+}
+/*game over or win the game弹出页面*/
+.popup .game-over, .popup .win {
+	position: absolute;
+	left: 60px;
+	text-align: center;
+	width: 280px;
+	height: 160px;
+	border-radius: 5px;
+	/*border: 1px solid red;*/
+	opacity: 1.0;
+}
+.popup p {
+	color: #8f7a66;
+}
+.popup .game-over {
+	display: none;
+	top: 230px;
+	font-size: 36px;
+	font-weight: bold;
+}
+
+.popup .win {
+	display: none;
+	top: 220px;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+p.try-again {
+	color: #fff;
+	font-size: 22px;
+	width: 150px;
+	height: 50px;
+	line-height: 50px;
+	border-radius: 5px;
+	margin: 0 auto;
+	background-color: #8f7a66;
+	cursor: pointer;
+}
+.header, .game-board {
+	/*opacity: 0.4;*/
+}
+
+
