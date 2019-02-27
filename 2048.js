@@ -248,7 +248,7 @@ function touch() {
 	    startY = e.changedTouches[0].pageY;
 	},false);
 
-	body.addEventListener('touchmove',function(e){
+	body.addEventListener('touchend',function(e){
 		//获取滑动屏幕时的X,Y
 		endX = e.changedTouches[0].pageX,
 		endY = e.changedTouches[0].pageY;
