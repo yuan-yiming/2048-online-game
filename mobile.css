@@ -1,6 +1,6 @@
 
 body {
-	background-color: #999;
+	background-color: #d3d3d3;
 }
 
 .wrapper {
@@ -23,15 +23,10 @@ body {
 }
 
 
-.title, .slogan, .new-game {
+.title, .slogan {
 	width: 100%;
 	
 }
-.score, .best, {
-	width: 50%;
-	border: 1px solid green;
-}
-
 
 .title strong {
 	display: inline-block;
@@ -50,6 +45,11 @@ body {
 
 
 /*分数*/
+.score, .best, .new-game {
+	width: 25%;
+	/*border: 1px solid green;*/
+}
+
 /* 分数动画 */
 .score-animation, .best-animation{
 	display: none;
@@ -66,31 +66,36 @@ body {
 	/*position: absolute;*/
 	line-height: 28px;
 	top: 90%;
-	width: 30%;
 	background-color: #bbada0;
 }
 .score {
-	left: 15%;
+	left: 47.5%;
 }
 .best {
-	left: 55%;
+	left: 75%;
 }
 .new-game {
-	width: 70%;
-	line-height: 40px;
-	left: 15%;
-	top: 140%;
+	width: 45%;
+	height: 60px;
+	line-height: 60px;
+	left: 0;
+	top: 90%;
 	text-align: center;
 	background-color: #8e7963;
 	cursor: pointer;
+	/*padding-bottom: 2em;*/
+	font-size: 28px;
 }
 .new-game:hover {
-	width: 72%;
+	width: 45%;
 	/*height: 42px;*/
-	line-height: 42px;
-	left: 14%;
-	top: 138%;
-	font-size: 24px;
+	/*line-height: 42px;*/
+	height: 60px;
+	line-height: 60px;
+	left: 0;
+	top: 90%;
+	/*line-height: 2e;*/
+	font-size: 28px;
 }
 
 .score span, .best span, .new-game span {
@@ -100,12 +105,10 @@ body {
 	text-align: center;
 	border-radius: 5px;
 } 
-.best .number, .score .number, .new-game {
+.best .number, .score .number {
 	font-size: 22px;
 	font-weight: bold;
 }
-
-
 
 /*游戏主面板*/
 .game-board {
@@ -117,7 +120,7 @@ body {
 	/*padding: 10px 10px;*/
 	background-color: #bbada0;
 	/*opacity: 0.4;*/
-	top: 46%;
+	top: 36%;
 }
 .grid {
 	/*position: relative;*/

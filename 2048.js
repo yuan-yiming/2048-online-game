@@ -8,6 +8,7 @@ window.onload = function () {
 	getReady();
 	backgroundColorToNumber();
 	scaleWidth();
+	touch();
 }
 
 
@@ -241,7 +242,32 @@ function keyDown(keyCode) {
 
 // 移动端使用touch事件来监听滑块移动
 function touch() {
+	var body = document.getElementsByTagName("body")[0];
+	body.addEventListener("touchstart",function (e) {
+		startX = e.changedTouches[0].pageX,
+	    startY = e.changedTouches[0].pageY;
+	},false);
 
+	body.addEventListener('touchmove',function(e){
+		//获取滑动屏幕时的X,Y
+		endX = e.changedTouches[0].pageX,
+		endY = e.changedTouches[0].pageY;
+		//获取滑动距离
+		distanceX = endX-startX;
+		distanceY = endY-startY;
+		//判断滑动方向
+		if(Math.abs(distanceX)>Math.abs(distanceY) && distanceX>0){
+		    keyDown(39);
+		}else if(Math.abs(distanceX)>Math.abs(distanceY) && distanceX<0){
+		    keyDown(37);
+		}else if(Math.abs(distanceX)<Math.abs(distanceY) && distanceY<0){
+		    keyDown(38);
+		}else if(Math.abs(distanceX)<Math.abs(distanceY) && distanceY>0){
+		    keyDown(40);
+		}else{
+		    console.log('点击未滑动');
+		}
+	});
 }
 
 // 3.记录分数，分数会增加，
