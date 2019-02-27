@@ -244,11 +244,13 @@ function keyDown(keyCode) {
 function touch() {
 	var body = document.getElementsByTagName("body")[0];
 	body.addEventListener("touchstart",function (e) {
+		// e.preventDefault();
 		startX = e.changedTouches[0].pageX,
 	    startY = e.changedTouches[0].pageY;
 	},false);
 
 	body.addEventListener('touchend',function(e){
+		e.preventDefault();
 		//获取滑动屏幕时的X,Y
 		endX = e.changedTouches[0].pageX,
 		endY = e.changedTouches[0].pageY;
