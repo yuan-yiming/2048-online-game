@@ -7,6 +7,22 @@ window.onload = function () {
 	newGameBotton();
 	getReady();
 	backgroundColorToNumber();
+	scaleWidth();
+}
+
+
+// 宽高比例1:!
+function scaleWidth() {
+	// 获取格子的宽度
+	var grid = document.getElementsByClassName("grid"),
+		width = window.getComputedStyle(grid[0], null)["width"];
+		// width = grid[0].style.width;
+	//给格子高度赋值
+	for (var i = 0; i < 16; i++) {
+		grid[i].style.height = width;
+	}
+	
+	
 }
 
 // giveNumber：随机在一个空格子放一个数字num
@@ -153,7 +169,8 @@ function getPrevGrid(ele, direction) {
 }
 
 
-
+// #滑块移动#
+// 桌面版通过监听方向键来控制滑块移动方向
 function keyDown(keyCode) {
 	var dir,
 		arr,
@@ -222,6 +239,10 @@ function keyDown(keyCode) {
 	return count;
 }
 
+// 移动端使用touch事件来监听滑块移动
+function touch() {
+
+}
 
 // 3.记录分数，分数会增加，
 function addScore(score) {
@@ -449,152 +470,3 @@ function gridMove(ele, dir, num) {
 
 }
 
-
-
-
-// =============================================================================================
-// 分数增加 动画
-// function scoreUpAnimaton(board, score) {
-// 	var score,
-// 		timer,
-// 		divEle,
-// 		spanEle,
-// 		count = 0;
-
-// 	spanEle = document.createElement("span");
-// 	score = "+" + score;
-// 	spanEle.innerText = score;
-	
-// 	spanEle.style = {
-// 		display: "inline-block",
-// 		position: "absolute",
-// 		top: "25px",
-// 		left: "10px",
-// 		width: "65px",
-// 		height: "30px",
-// 		fontSize: "24px",
-// 		fontWeight: "bold",
-// 		color: "#8f7a66",
-// 		opacity: "1.0",
-// 	}
-
-// 	if (board == "score") {
-// 		divEle = document.getElementsByClassName("score")[0];
-// 	} else if (board == "best") {
-// 		divEle = document.getElementsByClassName("best")[0];
-// 	}
-// 	divEle.appendChild(spanEle);
-// 	timer = setInterval(function() {
-// 		count ++;
-// 		console.log(count);
-// 		// spanEle.style.display = "inline-block";
-// 		spanEle.style.top = parseInt(spanEle.style.top) - 8 + "px";
-// 		spanEle.style.opacity = parseFloat(spanEle.style.opacity) - 0.1;
-// 		if (count == 6) {
-
-// 			clearInterval(timer);
-// 			spanEle.remove();
-// 		}
-// 	}, 80);
-// }
-
-
-
-
-// keyDown()：监听上下左右键的主函数
-// function keyDown(keyCode) {
-// 	var signal;
-// 	switch (keyCode) {
-// 			case 38:
-// 				signal = goUp();
-// 				// console.log(signal);
-// 				break;
-// 			case 40:
-// 				signal = goDown();
-// 				break;
-// 			case 37:
-// 				signal = goLeft();
-// 				// console.log("执行函数！");
-// 				break;
-// 			case 39:
-// 				signal = goRight();
-// 				break;
-// 		}
-// 	// 格子有运动signal > 0
-// 	if (signal > 0) {
-// 		giveNumber(2);
-// 		backgroundColorToNumber();
-// 	}
-// 	testGameOver();
-// }
-
-
-// goUp()：格子向上运动
-// function goUp() {
-// 	var col,
-// 		go,
-// 		count = 0,   // 用于叠加每次运动得到的分数
-// 		signal = 0;  // 用于判断格子是否运动
-// 	// 从左到右遍历每一列
-// 	for (var i = 1; i < 5; i ++) {
-// 		col = document.getElementsByClassName("col" + i);
-// 		// 从上到下遍历每一列的每一个格子
-
-// 		for (var j = 1; j < 4; j ++) {
-// 			// console.log(col[j]);
-// 			go = howToGo(col[j], "up", j);
-// 			signal += go;
-// 			if (go >= 4) {
-// 				count += go;   // 累计每一次运动的得分
-// 			}
-// 		}
-// 	}
-// 	return signal;
-// }
-// // goDown()：格子向下运动
-// function goDown() {
-// 	var col, 
-// 		max,
-// 		signal = 0;
-// 	// 从左到右遍历每一列
-// 	for (var i = 1; i < 5; i ++) {
-// 		col = document.getElementsByClassName("col" + i);
-// 		// 从下到上遍历每一行的每一个格子
-// 		for (var j = 2; j >= 0; j --) {
-// 			max = 3 - j;
-// 			signal += howToGo(col[j], "down", max);
-// 		}	
-// 	}
-// 	return signal;
-// }
-// // goLeft()：格子向左运动
-// function goLeft() {
-// 	var row,
-// 		signal = 0;
-// 	// 从上到下遍历每一行
-// 	for (var i = 1; i < 5; i ++) {
-// 		row = document.getElementsByClassName("row" + i);
-// 		// 从左到右遍历每一行的每一个格子
-// 		for (var j = 1; j < 4; j ++) {
-// 			signal += howToGo(row[j], "left", j);
-// 		}	
-// 	}
-// 	return signal;
-// }
-
-// // goRight()：格子向右运动
-// function goRight() {
-// 	var row, 
-// 		max,
-// 		signal = 0;
-// 	// 从上到下遍历每一行
-// 	for (var i = 1; i < 5; i ++) {
-// 		row = document.getElementsByClassName("row" + i);
-// 		// 从右到左遍历每一行的每一个格子
-// 		for (var j = 2; j >= 0; j --) {
-// 			max = 3 - j;
-// 			signal += howToGo(row[j], "right", max);
-// 		}	
-// 	}
-// 	return signal;
-// }

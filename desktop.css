@@ -1,12 +1,12 @@
 * {
 	list-style: none;
 	color: #8f7a66;
-}
-body {
 	padding: 0;
 	margin: 0;
+	box-sizing: border-box;
+}
+body {
 	background-color: #ffffe0;
-	
 }
 
 .wrapper {
@@ -98,10 +98,13 @@ body {
 	top: 89px;
 	font-size: 24px;
 }
+
+
+
 /*游戏主面板*/
 .game-board {
-	width: 390px;
-	height: 390px;
+	width: 400px;
+	height: 400px;
 	padding: 5px 5px;
 	background-color: #bbada0;
 	/*opacity: 0.4;*/
