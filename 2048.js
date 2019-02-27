@@ -255,14 +255,14 @@ function touch() {
 		//获取滑动距离
 		distanceX = endX-startX;
 		distanceY = endY-startY;
-		//判断滑动方向
-		if(Math.abs(distanceX)>Math.abs(distanceY) && distanceX>0){
+		//判断滑动方向，滑动角度大于15°
+		if(Math.abs(distanceX) / Math.abs(distanceY) > 3.7 && distanceX > 0){
 		    keyDown(39);
-		}else if(Math.abs(distanceX)>Math.abs(distanceY) && distanceX<0){
+		}else if(Math.abs(distanceX) / Math.abs(distanceY) > 3.7 && distanceX < 0){
 		    keyDown(37);
-		}else if(Math.abs(distanceX)<Math.abs(distanceY) && distanceY<0){
+		}else if(Math.abs(distanceY) / Math.abs(distanceX) > 3.7 && distanceY < 0){
 		    keyDown(38);
-		}else if(Math.abs(distanceX)<Math.abs(distanceY) && distanceY>0){
+		}else if(Math.abs(distanceY) / Math.abs(distanceX) > 3.7 && distanceY > 0){
 		    keyDown(40);
 		}else{
 		    console.log('点击未滑动');
