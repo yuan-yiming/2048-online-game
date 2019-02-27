@@ -242,14 +242,14 @@ function keyDown(keyCode) {
 
 // 移动端使用touch事件来监听滑块移动
 function touch() {
-	var body = document.getElementsByTagName("body")[0];
-	body.addEventListener("touchstart",function (e) {
+	var gameBoard = document.getElementsByTagName("game-board")[0];
+	gameBoard.addEventListener("touchstart",function (e) {
 		// e.preventDefault();
 		startX = e.changedTouches[0].pageX,
 	    startY = e.changedTouches[0].pageY;
 	},false);
 
-	body.addEventListener('touchend',function(e){
+	gameBoard.addEventListener('touchend',function(e){
 		e.preventDefault();
 		//获取滑动屏幕时的X,Y
 		endX = e.changedTouches[0].pageX,
