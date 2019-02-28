@@ -326,7 +326,11 @@ function keyDown(keyCode) {
 // 移动端使用touch事件来监听滑块移动
 function touch() {
 	var gameBoard = document.getElementsByClassName("game-board")[0];
+
+	
+
 	gameBoard.addEventListener("touchstart",function (e) {
+		deleteTempGrid();
 		// e.preventDefault();
 		startX = e.changedTouches[0].pageX,
 	    startY = e.changedTouches[0].pageY;
