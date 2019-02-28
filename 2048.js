@@ -2,7 +2,7 @@
 
 // 页面加载时
 window.onload = function () {
-	// tempGrid = tempGrid();
+	// var temp = tempGrid(2);
 	giveNumber(2, 2);
 	newGameBotton();
 	getReady();
@@ -24,11 +24,72 @@ function scaleWidth() {
 	}	
 }
 
+// 创建一个临时的格子
+function createTempGrid(num) {
+		var temp = document.createElement("div");
+		temp.innerHTML = "<span>" + num + "</span>";	
+		temp.style.position = "absolute";
+		temp.style.backgroundColor = "#fff8dc";
+		temp.style.width = "87.5px";
+		temp.style.height = "87.5px";
+		temp.style.lineHeight = "87.5px";
+		temp.style.fontWeight = "bold";
+		temp.style.fontSize = "48px";
+		temp.style.borderRadius = "5px";
+		temp.style.top = "0";
+		temp.style.left = "0";
+		// temp.style.display = "none";
+		// console.log(temp);
+		temp.classList.add("temp-grid");
+		return temp;
+	};
 
+// 删除临时格子
+function deleteTempGrid() {
+	var temp = document.getElementsByClassName("temp-grid");
+	for (var i = 0; i < temp.length; i ++) {
+		temp[i].remove();
+	}
+	var newGrid = document.getElementsByClassName("new-grid");
+		// console.log(newGrid);
+	if (newGrid) {
+		console.log(newGrid.length);
+		for (var i = 0; i < newGrid.length; i ++) {
+			newGrid[i].classList.remove("new-grid");
+			console.log(newGrid.length);
+		}
+	}
+}
 
-
-// giveNumber：随机在一个空格子放一个数字num
+// giveNumber：随机在一个生成gridNum个空格子，每个空格子里面放一个数字num
 function giveNumber(num, gridNum) {
+	// console.log("give!!!!");
+	var x, y, newGrid, tempGrid;
+	
+	tempGrid = createTempGrid(2);
+	
+	while (true) {
+		// if (tempGrid && tempGrid.parentElement) {
+		// 	tempGrid.parentElement.removeChild(tempGrid);
+		// }
+		x = Math.floor(Math.random() * 4) + 1;
+		y = Math.floor(Math.random() * 4) + 1;
+		newGrid = document.getElementsByClassName("grid-" + x + y)[0];
+		
+		// newGrid.style.backgroundColor = "#b0c4de";
+		if (newGrid.innerHTML == "<span></span>") {
+			newGrid.classList.add("new-grid");
+			newGrid.innerHTML = "<span>" + num + "</span>";
+			gridNum -= 1;
+			newGrid.appendChild(tempGrid);
+			break;
+		}
+	}
+	// return blankGrid;
+}
+
+// giveNumber：随机在一个生成gridNum个空格子，每个空格子里面放一个数字num
+function missgiveNumber(num, gridNum) {
 	var x, y, newGrid, tempGrid;
 	function createTempGrid() {
 		var temp = document.createElement("div");  // 生成一个临时的格子
@@ -36,7 +97,7 @@ function giveNumber(num, gridNum) {
 		temp.classList.add("grid");
 		temp.style.position = "absolute";
 		temp.style.backgroundColor = "#fff8dc";
-		temp.classList.add("new-grid");
+		temp.classList.add("temp-grid");
 		return temp;
 	};
 	// tempGrid = createTempGrid();
@@ -96,60 +157,66 @@ function backgroundColorToNumber() {
 		gridNum = getGridNum(grid[i]);
 		// child = grid[i].children[0];
 		grid[i].style.fontSize = "48px";
-		switch (gridNum) {
-			case 2:
-				grid[i].style.backgroundColor = "#fff8dc";
-				// grid[i].children[0].style.color = "#fff";   // 崩溃！！
-				break;
-			case 4:
-				grid[i].style.backgroundColor = "#e9967a";
-				// grid[i].children[0].style.color = "#8f7a66";	
-				break;
-			case 8:
-				grid[i].style.backgroundColor = "#FFA07A";
-				break;
-			case 16:
-				grid[i].style.backgroundColor = "#F4A460";
-				break;
-			case 32:
-				grid[i].style.backgroundColor = "#FA8072";
-				break;
-			case 64:
-				grid[i].style.backgroundColor = "#ff7f50";
-				break;
-			case 128:
-				grid[i].style.backgroundColor = "#FF6347";
-				grid[i].style.fontSize = "40px";
-				break;
-			case 256:
-				grid[i].style.backgroundColor = "#FF8800";
-				grid[i].style.fontSize = "40px";
-				break;
-			case 512:
-				grid[i].style.backgroundColor = "#FF6600";
-				grid[i].style.fontSize = "40px";
-				break;
-			case 1024:
-				grid[i].style.backgroundColor = "#F53";
-				grid[i].style.fontSize = "32px";
-				break;
-			case 2048:
-				grid[i].style.backgroundColor = "#F40";
-				grid[i].style.fontSize = "32px";
-				break;
-			default:
-				grid[i].style.backgroundColor = "#b0c4de";
+		// if ((" " + grid[i].className + " ").indexOf(" " + "new-grid" + " ") == -1) {
+			switch (gridNum) {
+				case 2:
+					grid[i].style.backgroundColor = "#fff8dc";
+					// grid[i].children[0].style.color = "#fff";   // 崩溃！！
+					break;
+				case 4:
+					grid[i].style.backgroundColor = "#e9967a";
+					// grid[i].children[0].style.color = "#8f7a66";	
+					break;
+				case 8:
+					grid[i].style.backgroundColor = "#FFA07A";
+					break;
+				case 16:
+					grid[i].style.backgroundColor = "#F4A460";
+					break;
+				case 32:
+					grid[i].style.backgroundColor = "#FA8072";
+					break;
+				case 64:
+					grid[i].style.backgroundColor = "#ff7f50";
+					break;
+				case 128:
+					grid[i].style.backgroundColor = "#FF6347";
+					grid[i].style.fontSize = "40px";
+					break;
+				case 256:
+					grid[i].style.backgroundColor = "#FF8800";
+					grid[i].style.fontSize = "40px";
+					break;
+				case 512:
+					grid[i].style.backgroundColor = "#FF6600";
+					grid[i].style.fontSize = "40px";
+					break;
+				case 1024:
+					grid[i].style.backgroundColor = "#F53";
+					grid[i].style.fontSize = "32px";
+					break;
+				case 2048:
+					grid[i].style.backgroundColor = "#F40";
+					grid[i].style.fontSize = "32px";
+					break;
+				default:
+					grid[i].style.backgroundColor = "#b0c4de";
 
-				// grid[i].children[0].style.color = "#fff";											
-		}
+					// grid[i].children[0].style.color = "#fff";											
+			}
+		// }
+
 	} 
 }
 
 // 2.按下方向键后，判断格子是否可以运动，并且随机在空格子里填一个数字2
 // 游戏主入口
 function getReady() {
+
 	window.onkeydown = function(e) {
+		deleteTempGrid();
 		keyDown(e.keyCode);
+		// backgroundColorToNumber();
 	}
 }
 
@@ -186,7 +253,6 @@ function getPrevGrid(ele, direction) {
 	}
 }
 
-
 // #滑块移动#
 // 桌面版通过监听方向键来控制滑块移动方向
 function keyDown(keyCode) {
@@ -195,7 +261,7 @@ function keyDown(keyCode) {
 		go,
 		count = 0,   // 用于叠加每次运动得到的分数
 		signal = 0;  // 用于判断格子是否运动
-	
+
 	switch (keyCode) {
 		case 37:
 			dir = "left";
@@ -210,7 +276,6 @@ function keyDown(keyCode) {
 			dir = "down";
 			break;
 	}
-
 	
 	for (var i = 1; i < 5; i ++) {
 		if (dir == "up" || dir == "down") {
@@ -246,6 +311,7 @@ function keyDown(keyCode) {
 	}
 	// 格子有运动signal > 0
 	if (signal > 0) {
+		// console.log("signal:" + signal);
 		giveNumber(2, 1);
 		backgroundColorToNumber();
 		testGameOver();
@@ -421,7 +487,7 @@ function popup(popType) {
 	if (popType == "win") {
 		num = 1;
 	}
-	tryAgainEle = document.getElementsByClassName("try-again")[num],
+	tryAgainEle = document.getElementsByClassName("try-again")[num];
 	tryAgainEle.addEventListener("click", function () {
 		tryAgain();
 	}, false);
@@ -452,6 +518,7 @@ function test() {
 }
 
 // 6.动画，分数增加、格子移动、新格子生成
+
 
 // 分数增加 动画
 function scoreUpAnimaton(type, score) {
@@ -521,3 +588,4 @@ function gridMove(ele, dir, num) {
 
 }
 
+ 

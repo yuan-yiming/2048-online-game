@@ -122,6 +122,7 @@ body {
 }
 .game-board .grid span {
 	/*color: */
+	margin-bottom: 3px;
 }
 /*game over or win the game弹出页面*/
 .popup .game-over, .popup .win {
@@ -166,27 +167,30 @@ p.try-again {
 	/*opacity: 0.4;*/
 }
 
+.new-grid {
+	background-color: #b0c4de !important;
+}
 
 /* 生成新格子动画 */
-@keyframes newgrid {
-	from {width: 30px; height: 30px; top: 31.25px;left: 31.25px; font-size: 10px; line-height: 30px;display: block;}
-	to {width: 87.5px; height: 87.5px; top: 0px;left: 0px; font-size: 32px; line-height: 87.5px;display: none;}
+@keyframes tempgrid {
+	from {width: 45px; height: 45px; top: 24px;left: 24px; font-size: 18px; line-height: 45px;display: block;}
+	to {width: 87.5px; height: 87.5px; top: 0px;left: 0px; font-size: 48px; line-height: 87.5px;display: none;}
 }
-@-webkit-keyframes newgrid {
-	from {width: 30px; height: 30px; top: 31.25px;left: 31.25px; font-size: 10px; line-height: 30px;display: block;}
-	to {width: 87.5px; height: 87.5px; top: 0px;left: 0px; font-size: 32px; line-height: 87.5px;display: none;}
+@-webkit-keyframes tempgrid {
+	from {width: 45px; height: 45px; top: 24px;left: 24px; font-size: 18px; line-height: 45px;display: block;}
+	to {width: 87.5px; height: 87.5px; top: 0px;left: 0px; font-size: 48px; line-height: 87.5px;display: none;}
 }
-@-ms-keyframes newgrid {
-	from {width: 30px; height: 30px; top: 31.25px;left: 31.25px; font-size: 10px; line-height: 30px;display: block;}
-	to {width: 87.5px; height: 87.5px; top: 0px;left: 0px; font-size: 32px; line-height: 87.5px;display: none;}
+@-ms-keyframes tempgrid {
+	from {width: 45px; height: 45px; top: 24px;left: 24px; font-size: 18px; line-height: 45px;display: block;}
+	to {width: 87.5px; height: 87.5px; top: 0px;left: 0px; font-size: 48px; line-height: 87.5px;display: none;}
 }
-@-moz-keyframes newgrid {
-	from {width: 30px; height: 30px; top: 31.25px;left: 31.25px; font-size: 10px; line-height: 30px;display: block;}
-	to {width: 87.5px; height: 87.5px; top: 0px;left: 0px; font-size: 32px; line-height: 87.5px;display: none;}
+@-moz-keyframes tempgrid {
+	from {width: 45px; height: 45px; top: 24px;left: 24px; font-size: 18px; line-height: 45px;display: block;}
+	to {width: 87.5px; height: 87.5px; top: 0px;left: 0px; font-size: 48px; line-height: 87.5px;display: none;}
 }
-.new-grid {
-	animation: newgrid 5s ease-in;
-	-webkit-animation: newgrid 5s ease-in;
-	-ms-animation: newgrid 5s ease-out;
-	-moz-animation: newgrid 5s ease-out;
+.temp-grid {
+	animation: tempgrid 0.1s ease-in forwards;
+	-webkit-animation: tempgrid 0.3s ease-in forwards;
+	-ms-animation: tempgrid 0.3s ease-out;
+	-moz-animation: tempgrid 0.3s ease-out;
 }
