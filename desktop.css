@@ -167,3 +167,26 @@ p.try-again {
 }
 
 
+/* 生成新格子动画 */
+@keyframes newgrid {
+	from {width: 30px; height: 30px; top: 31.25px;left: 31.25px; font-size: 10px; line-height: 30px;display: block;}
+	to {width: 87.5px; height: 87.5px; top: 0px;left: 0px; font-size: 32px; line-height: 87.5px;display: none;}
+}
+@-webkit-keyframes newgrid {
+	from {width: 30px; height: 30px; top: 31.25px;left: 31.25px; font-size: 10px; line-height: 30px;display: block;}
+	to {width: 87.5px; height: 87.5px; top: 0px;left: 0px; font-size: 32px; line-height: 87.5px;display: none;}
+}
+@-ms-keyframes newgrid {
+	from {width: 30px; height: 30px; top: 31.25px;left: 31.25px; font-size: 10px; line-height: 30px;display: block;}
+	to {width: 87.5px; height: 87.5px; top: 0px;left: 0px; font-size: 32px; line-height: 87.5px;display: none;}
+}
+@-moz-keyframes newgrid {
+	from {width: 30px; height: 30px; top: 31.25px;left: 31.25px; font-size: 10px; line-height: 30px;display: block;}
+	to {width: 87.5px; height: 87.5px; top: 0px;left: 0px; font-size: 32px; line-height: 87.5px;display: none;}
+}
+.new-grid {
+	animation: newgrid 5s ease-in;
+	-webkit-animation: newgrid 5s ease-in;
+	-ms-animation: newgrid 5s ease-out;
+	-moz-animation: newgrid 5s ease-out;
+}

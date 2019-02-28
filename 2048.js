@@ -2,8 +2,8 @@
 
 // 页面加载时
 window.onload = function () {
-	giveNumber(2);
-	giveNumber(4);
+	// tempGrid = tempGrid();
+	giveNumber(2, 2);
 	newGameBotton();
 	getReady();
 	backgroundColorToNumber();
@@ -21,23 +21,39 @@ function scaleWidth() {
 	//给格子高度赋值
 	for (var i = 0; i < 16; i++) {
 		grid[i].style.height = width;
-	}
-	
-	
+	}	
 }
 
+
+
+
 // giveNumber：随机在一个空格子放一个数字num
-function giveNumber(num) {
-	var x, y, blankGrid;
-	while (true) {
+function giveNumber(num, gridNum) {
+	var x, y, newGrid, tempGrid;
+	function createTempGrid() {
+		var temp = document.createElement("div");  // 生成一个临时的格子
+		temp.innerHTML = "<span>" + num + "</span>";
+		temp.classList.add("grid");
+		temp.style.position = "absolute";
+		temp.style.backgroundColor = "#fff8dc";
+		temp.classList.add("new-grid");
+		return temp;
+	};
+	// tempGrid = createTempGrid();
+	// if (tempGrid.parentElement) {
+	// 	tempGrid.parentElement.removeChild(tempGrid);
+	// }
+	while (gridNum) {
 		x = Math.floor(Math.random() * 4) + 1,
 		y = Math.floor(Math.random() * 4) + 1;
-		blankGrid = document.getElementsByClassName("grid-" + x + y)[0];
-		if (blankGrid.innerHTML == "<span></span>") {
-			blankGrid.innerHTML = "<span>" + num + "</span>";
-			break;
+		newGrid = document.getElementsByClassName("grid-" + x + y)[0];
+		if (newGrid.innerHTML == "<span></span>") {
+			newGrid.innerHTML = "<span>" + num + "</span>";
+			// newGrid.appendChild(tempGrid);
+			gridNum -= 1;
 		}
 	}
+
 	// return blankGrid;
 }
 
@@ -56,18 +72,19 @@ function clearGrid() {
 // 重新开始一次游戏
 function newGame() {
 	clearGrid();
-	giveNumber(2);
-	giveNumber(2);
+	giveNumber(2,2);
 	backgroundColorToNumber();
 	return true;
 }
 // 触发新一次游戏的按钮
 function newGameBotton() {
 	var newGameBtn = document.getElementsByClassName("new-game")[0];
-	newGameBtn.onclick = function () {
+	newGameBtn.addEventListener("click", function () {
 		newGame();
-	}
-	
+	}, false); 
+	newGameBtn.addEventListener("touchend", function () {
+		newGame();
+	}, false); 
 }
 
 // backgroundColorToNumber：数字跟背景颜色/大小对应
@@ -229,7 +246,7 @@ function keyDown(keyCode) {
 	}
 	// 格子有运动signal > 0
 	if (signal > 0) {
-		giveNumber(2);
+		giveNumber(2, 1);
 		backgroundColorToNumber();
 		testGameOver();
 	}
@@ -242,7 +259,7 @@ function keyDown(keyCode) {
 
 // 移动端使用touch事件来监听滑块移动
 function touch() {
-	var gameBoard = document.getElementsByTagName("game-board")[0];
+	var gameBoard = document.getElementsByClassName("game-board")[0];
 	gameBoard.addEventListener("touchstart",function (e) {
 		// e.preventDefault();
 		startX = e.changedTouches[0].pageX,
@@ -258,13 +275,13 @@ function touch() {
 		distanceX = endX-startX;
 		distanceY = endY-startY;
 		//判断滑动方向，滑动角度大于15°
-		if(Math.abs(distanceX) / Math.abs(distanceY) > 3.7 && distanceX > 0){
+		if(Math.abs(distanceX) / Math.abs(distanceY) > 1.73 && distanceX > 0){
 		    keyDown(39);
-		}else if(Math.abs(distanceX) / Math.abs(distanceY) > 3.7 && distanceX < 0){
+		}else if(Math.abs(distanceX) / Math.abs(distanceY) > 1.73 && distanceX < 0){
 		    keyDown(37);
-		}else if(Math.abs(distanceY) / Math.abs(distanceX) > 3.7 && distanceY < 0){
+		}else if(Math.abs(distanceY) / Math.abs(distanceX) > 1.73 && distanceY < 0){
 		    keyDown(38);
-		}else if(Math.abs(distanceY) / Math.abs(distanceX) > 3.7 && distanceY > 0){
+		}else if(Math.abs(distanceY) / Math.abs(distanceX) > 1.73 && distanceY > 0){
 		    keyDown(40);
 		}else{
 		    console.log('点击未滑动');
@@ -405,13 +422,19 @@ function popup(popType) {
 		num = 1;
 	}
 	tryAgainEle = document.getElementsByClassName("try-again")[num],
-	tryAgainEle.onclick = function (popType) {
-		console.log(ele);
-		ele.style.display = "none";
-		headerEle.style.opacity = "1.0";
-		gameBoardEle.style.opacity = "1.0";
-		newGame();
-	};
+	tryAgainEle.addEventListener("click", function () {
+		tryAgain();
+	}, false);
+	tryAgainEle.addEventListener("touchend", function () {
+		tryAgain();
+	}, false);
+}
+
+function tryAgain() {
+	ele.style.display = "none";
+	headerEle.style.opacity = "1.0";
+	gameBoardEle.style.opacity = "1.0";
+	newGame();
 }
 
 // 5.测试
