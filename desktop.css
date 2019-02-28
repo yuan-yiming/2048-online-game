@@ -122,7 +122,7 @@ body {
 }
 .game-board .grid span {
 	/*color: */
-	margin-bottom: 3px;
+	
 }
 /*game over or win the game弹出页面*/
 .popup .game-over, .popup .win {
