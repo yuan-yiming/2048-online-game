@@ -356,6 +356,10 @@ function touch() {
 	});
 }
 
+// 给github图标添加跳转函数
+function githubIcon() {
+	window.location.href = "https://github.com/Yuan-Yiming/2048-online-game";
+}
 
 
 // 3.记录分数，分数会增加，
