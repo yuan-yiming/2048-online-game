@@ -214,7 +214,7 @@ function backgroundColorToNumber() {
 function getReady() {
 
 	window.onkeydown = function(e) {
-		deleteTempGrid();
+		deleteTempGrid();  // 在其他位置
 		keyDown(e.keyCode);
 		// backgroundColorToNumber();
 	}
