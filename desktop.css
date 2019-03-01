@@ -24,7 +24,7 @@ body {
 	position: relative;
 	/*opacity: 0.4;*/
 }
-.title, .slogan, .score, .best, .new-game {
+.title, .slogan, .score, .best, .new-game, .github>a {
 	position: absolute;
 }
 .title strong {
@@ -42,6 +42,32 @@ body {
 	top: 85px;
 	/*border: 1px solid black;*/
 }
+.github>a {
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	/*border: 1px solid red;*/
+	top: 8%;
+	right: 5%;
+	/*margin: 5px;*/
+	background: url("Git.png") no-repeat 0 0;
+	border-radius: 50%;
+	background-size: 100%;
+}
+/*.github>a>span {
+	display: inline-block;
+	width: 100px;
+	height: 16px;
+	line-height: 16px;
+	position: absolute;
+	bottom: -24px;
+	left: -25px;
+	text-align: center;
+	color: #2c2c2c;
+}*/
+
+
+
 /*分数*/
 
 /* 分数动画 */
