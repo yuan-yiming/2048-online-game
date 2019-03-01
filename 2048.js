@@ -53,10 +53,10 @@ function deleteTempGrid() {
 	var newGrid = document.getElementsByClassName("new-grid");
 		// console.log(newGrid);
 	if (newGrid) {
-		console.log(newGrid.length);
+		// console.log(newGrid.length);
 		for (var i = 0; i < newGrid.length; i ++) {
 			newGrid[i].classList.remove("new-grid");
-			console.log(newGrid.length);
+			// console.log(newGrid.length);
 		}
 	}
 }
@@ -340,7 +340,6 @@ function touch() {
 	// 	window.location.href = "https://github.com/Yuan-Yiming/2048-online-game";
 	// });
 	
-
 	gameBoard.addEventListener("touchstart",function (e) {
 		
 		// e.preventDefault();
@@ -386,14 +385,19 @@ function addScore(score) {
 }
 
 
+
+
 // howToGoLeft(ele, direction, max)：该函数判断单个格子怎么移动
 function howToGo(ele, direction, max, testMode) {
 	var prevGrid,
 		prevGridNum,
 		gridNum = 0,
 		go,
-		addNum;
+		addNum,
+		numLen,
+		doubleNumGrid;
 		// console.log(prevGrid);
+
 	// 各个方向
 	prevGrid = getPrevGrid(ele, direction);
 	gridNum = getGridNum(ele);
@@ -430,6 +434,10 @@ function howToGo(ele, direction, max, testMode) {
 			// addScore(gridNum);
 			// gridMove(ele, direction, 1);
 			prevGrid.children[0].innerText = gridNum + "";
+			
+			// 在这里添加数字变大的动画：
+			// numLen = (gridNum + "").length;
+
 			ele.children[0].innerText = "";
 			// console.log('gridNum：' + gridNum)
 			if (gridNum == 2048) {
@@ -566,43 +574,6 @@ function scoreUpAnimaton(type, score) {
 	}, 80);
 }
 
-// 格子移动动画
-function gridMove(ele, dir, num) {
-	// 先移动，后消失
-	//1.span元素上色，原来的格子褪色
-	//2.移动span，span褪色，新的格子上色，span返回原来位置
-	var span = ele.children[0],
-		distance = num * 97.5;
 
-	// span上色
-	span.style = {
-		display: "inline-block",
-		position: "absolute",
-		width: "87.5px",
-		height: "87.5px",
-		backgroundColor: "green",  // 
-		top: "0",
-		left: "0",
-	}
-
-	// span move
-	timer = setInterval(function () {
-		if (dir == "left") {
-			span.style.left = parseInt(span.style.left) - 32.5 + "px";
-			distance -= 32.5;
-			if (distance == 0) {
-				clearInterval(timer);
-				span.style.left = "0";
-			}
-		} else if (dir == "right") {
-
-		} else if (dir == "up") {
-
-		} else if (dir == "down") {
-
-		}
-	}, 30);
-
-}
 
  

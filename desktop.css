@@ -67,7 +67,6 @@ body {
 }*/
 
 
-
 /*分数*/
 
 /* 分数动画 */
@@ -203,10 +202,6 @@ p.try-again {
 	to {width: 87.5px; height: 87.5px; top: 0px;left: 0px; font-size: 48px; line-height: 87.5px;display: none;}
 }
 @-webkit-keyframes tempgrid {
-	from {width: 45px; height: 45px; top: 24px;left: 24px; font-size: 18px; line-height: 45px;display: block;}
-	to {width: 87.5px; height: 87.5px; top: 0px;left: 0px; font-size: 48px; line-height: 87.5px;display: none;}
-}
-@-ms-keyframes tempgrid {
 	from {width: 45px; height: 45px; top: 24px;left: 24px; font-size: 18px; line-height: 45px;display: block;}
 	to {width: 87.5px; height: 87.5px; top: 0px;left: 0px; font-size: 48px; line-height: 87.5px;display: none;}
 }
