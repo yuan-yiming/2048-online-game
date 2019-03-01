@@ -326,9 +326,6 @@ function keyDown(keyCode) {
 // 移动端使用touch事件来监听滑块移动
 function touch() {
 	var gameBoard = document.getElementsByClassName("game-board")[0];
-
-	
-
 	gameBoard.addEventListener("touchstart",function (e) {
 		deleteTempGrid();
 		// e.preventDefault();
@@ -337,7 +334,7 @@ function touch() {
 	},false);
 
 	gameBoard.addEventListener('touchend',function(e){
-		e.preventDefault();
+		// e.preventDefault();  // 阻止浏览器的默认行为，例如滚动、跳转等
 		//获取滑动屏幕时的X,Y
 		endX = e.changedTouches[0].pageX,
 		endY = e.changedTouches[0].pageY;
@@ -358,6 +355,8 @@ function touch() {
 		}
 	});
 }
+
+
 
 // 3.记录分数，分数会增加，
 function addScore(score) {
