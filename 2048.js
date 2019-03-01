@@ -493,14 +493,14 @@ function popup(popType) {
 	}
 	tryAgainEle = document.getElementsByClassName("try-again")[num];
 	tryAgainEle.addEventListener("click", function () {
-		tryAgain();
+		tryAgain(ele, headerEle, gameBoardEle);
 	}, false);
 	tryAgainEle.addEventListener("touchend", function () {
-		tryAgain();
+		tryAgain(ele, headerEle, gameBoardEle);
 	}, false);
 }
 
-function tryAgain() {
+function tryAgain(ele, headerEle, gameBoardEle) {
 	ele.style.display = "none";
 	headerEle.style.opacity = "1.0";
 	gameBoardEle.style.opacity = "1.0";

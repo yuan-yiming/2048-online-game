@@ -189,8 +189,8 @@ p.try-again {
 	to {width: 87.5px; height: 87.5px; top: 0px;left: 0px; font-size: 48px; line-height: 87.5px;display: none;}
 }
 .temp-grid {
-	animation: tempgrid 0.1s ease-in forwards;
-	-webkit-animation: tempgrid 0.3s ease-in forwards;
-	-ms-animation: tempgrid 0.3s ease-out;
-	-moz-animation: tempgrid 0.3s ease-out;
+	animation: tempgrid 0.15s ease-in forwards;
+	-webkit-animation: tempgrid 0.15s ease-in forwards;
+	-ms-animation: tempgrid 0.15s ease-out;
+	-moz-animation: tempgrid 0.15s ease-out;
 }
