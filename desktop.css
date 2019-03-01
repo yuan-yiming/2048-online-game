@@ -212,6 +212,6 @@ p.try-again {
 .temp-grid {
 	animation: tempgrid 0.15s ease-in forwards;
 	-webkit-animation: tempgrid 0.15s ease-in forwards;
-	-ms-animation: tempgrid 0.15s ease-out;
-	-moz-animation: tempgrid 0.15s ease-out;
+	-ms-animation: tempgrid 0.15s ease-out forwards;
+	-moz-animation: tempgrid 0.15s ease-out forwards;
 }
