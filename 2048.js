@@ -348,7 +348,7 @@ function touch() {
 	},false);
 
 	gameBoard.addEventListener('touchend',function(e){
-		deleteTempGrid();
+		
 		e.preventDefault();  // 阻止浏览器的默认行为，例如滚动、跳转等!!
 		//获取滑动屏幕时的X,Y
 		endX = e.changedTouches[0].pageX,
@@ -358,12 +358,16 @@ function touch() {
 		distanceY = endY-startY;
 		//判断滑动方向，滑动角度大于15°
 		if(Math.abs(distanceX) / Math.abs(distanceY) > 1.73 && distanceX > 0){
+		    deleteTempGrid();
 		    keyDown(39);
 		}else if(Math.abs(distanceX) / Math.abs(distanceY) > 1.73 && distanceX < 0){
+		    deleteTempGrid();
 		    keyDown(37);
 		}else if(Math.abs(distanceY) / Math.abs(distanceX) > 1.73 && distanceY < 0){
+		    deleteTempGrid();
 		    keyDown(38);
 		}else if(Math.abs(distanceY) / Math.abs(distanceX) > 1.73 && distanceY > 0){
+		    deleteTempGrid();
 		    keyDown(40);
 		}else{
 		    console.log('点击未滑动');
