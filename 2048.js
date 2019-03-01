@@ -326,6 +326,21 @@ function keyDown(keyCode) {
 // 移动端使用touch事件来监听滑块移动
 function touch() {
 	var gameBoard = document.getElementsByClassName("game-board")[0];
+	
+	// a标签添加跳转功能
+	var githubBtn = document.getElementsByClassName("source-link")[0];
+	
+	githubBtn.addEventListener("touchstart", function (e) {
+		alert("haha");
+		window.location.href = "https://github.com/Yuan-Yiming/2048-online-game";
+	});
+
+	githubBtn.addEventListener("click", function (e) {
+		alert("haha");
+		window.location.href = "https://github.com/Yuan-Yiming/2048-online-game";
+	});
+	
+
 	gameBoard.addEventListener("touchstart",function (e) {
 		deleteTempGrid();
 		// e.preventDefault();
@@ -334,7 +349,7 @@ function touch() {
 	},false);
 
 	gameBoard.addEventListener('touchend',function(e){
-		// e.preventDefault();  // 阻止浏览器的默认行为，例如滚动、跳转等
+		e.preventDefault();  // 阻止浏览器的默认行为，例如滚动、跳转等
 		//获取滑动屏幕时的X,Y
 		endX = e.changedTouches[0].pageX,
 		endY = e.changedTouches[0].pageY;
@@ -355,12 +370,6 @@ function touch() {
 		}
 	});
 }
-
-// 给github图标添加跳转函数
-function githubIcon() {
-	window.location.href = "https://github.com/Yuan-Yiming/2048-online-game";
-}
-
 
 // 3.记录分数，分数会增加，
 function addScore(score) {
