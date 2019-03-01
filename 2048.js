@@ -344,12 +344,12 @@ function touch() {
 	gameBoard.addEventListener("touchstart",function (e) {
 		deleteTempGrid();
 		// e.preventDefault();
-		startX = e.changedTouches[0].pageX,
+		startX = e.changedTouches[0].pageX;
 	    startY = e.changedTouches[0].pageY;
 	},false);
 
 	gameBoard.addEventListener('touchend',function(e){
-		e.preventDefault();  // 阻止浏览器的默认行为，例如滚动、跳转等
+		e.preventDefault();  // 阻止浏览器的默认行为，例如滚动、跳转等!!
 		//获取滑动屏幕时的X,Y
 		endX = e.changedTouches[0].pageX,
 		endY = e.changedTouches[0].pageY;
