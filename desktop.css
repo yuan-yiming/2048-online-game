@@ -24,7 +24,7 @@ body {
 	position: relative;
 	/*opacity: 0.4;*/
 }
-.title, .slogan, .score, .best, .new-game, .github>a {
+.title, .slogan, .score, .best, .new-game, .github>span {
 	position: absolute;
 }
 .title strong {
@@ -42,7 +42,7 @@ body {
 	top: 85px;
 	/*border: 1px solid black;*/
 }
-.github>a {
+.github>span {
 	display: inline-block;
 	width: 50px;
 	height: 50px;
@@ -54,7 +54,7 @@ body {
 	border-radius: 50%;
 	background-size: 100%;
 }
-/*.github>a>span {
+/*.github>span>span {
 	display: inline-block;
 	width: 100px;
 	height: 16px;

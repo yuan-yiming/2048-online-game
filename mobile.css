@@ -24,7 +24,7 @@ body {
 
 
 .title, .slogan {
-	width: 80%;
+	width: 100%;
 	
 }
 
@@ -44,11 +44,10 @@ body {
 }
 
 /* github */
-.github>a {
+/*.github>a {
 	top: 4%;
 	right: 6.25%;
-	/*margin: 5px;*/
-}
+}*/
 
 /*分数*/
 .score, .best, .new-game {

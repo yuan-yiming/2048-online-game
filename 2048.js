@@ -327,18 +327,18 @@ function keyDown(keyCode) {
 function touch() {
 	var gameBoard = document.getElementsByClassName("game-board")[0];
 	
-	// a标签添加跳转功能
-	var githubBtn = document.getElementsByClassName("source-link")[0];
+	// // a标签添加跳转功能
+	// var githubBtn = document.getElementsByClassName("source-link")[0];
 	
-	githubBtn.addEventListener("touchstart", function (e) {
-		alert("haha");
-		window.location.href = "https://github.com/Yuan-Yiming/2048-online-game";
-	});
+	// githubBtn.addEventListener("touchstart", function (e) {
+	// 	alert("haha");
+	// 	window.location.href = "https://github.com/Yuan-Yiming/2048-online-game";
+	// });
 
-	githubBtn.addEventListener("click", function (e) {
-		alert("haha");
-		window.location.href = "https://github.com/Yuan-Yiming/2048-online-game";
-	});
+	// githubBtn.addEventListener("click", function (e) {
+	// 	alert("haha");
+	// 	window.location.href = "https://github.com/Yuan-Yiming/2048-online-game";
+	// });
 	
 
 	gameBoard.addEventListener("touchstart",function (e) {
