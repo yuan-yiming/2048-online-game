@@ -1,2 +1,5 @@
 # 2048-online-game
-Play 2048 game online！
+
+用原生JS+CSS3写的2048在线小游戏，兼容移动端。
+
+demo地址：https://yuan-yiming.github.io/2048-online-game/
